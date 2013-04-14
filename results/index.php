@@ -30,7 +30,7 @@
                     <a href="../new">New Questionnaire</a>
                 </li>
                 <li>
-                    <a href="">Help</a>
+                    <a href="../help/">Help</a>
                 </li>
             </ul>
         </div>

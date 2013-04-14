@@ -1,5 +1,5 @@
 <?php
-
+$logged_in = false;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -27,7 +27,7 @@
                     <a href="">Home</a>
                 </li>
                 <li>
-                    <a href="sus">SUS</a>
+                    <a href="new">New Questionnaire</a>
                 </li>
                 <li>
                     <a href="help">Help</a>
@@ -36,6 +36,59 @@
         </div>
         <div id="content">
             
+<?php
+
+if (! $logged_in) {
+?>
+            
+            <div id="register-login">
+                <a href="#login">Login</a>
+                <a href="#register">Register</a>
+            </div>
+            <form action="?action=login" method="post" id="login">
+                <table>
+                    <tr>
+                        <td>E-mail Address</td>
+                        <td><input type="text" name="email"/></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" name="password"/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Submit"/></td>
+                    </tr>
+                </table>
+            </form>
+            <form action="?action=register" method="post" id="register">
+                <table>
+                    <tr>
+                        <td>E-mail Address</td>
+                        <td><input type="text" name="email"/></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" name="password"/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Submit"/></td>
+                    </tr>
+                </table>
+            </form>
+            
+<?php } else { ?>
+            
+            <h3>My Questionnaires</h3>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Link</td>
+                </tr>
+            </table>
+            
+<?php } ?>
         </div>
         <div id="footer">
             
