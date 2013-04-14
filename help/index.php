@@ -38,7 +38,7 @@
             
         </div>
         <div id="footer">
-            
+            <p>Visit our blog at <a href="http://igchi.wordpress.com/">igchi.wordpress.com</a>.</p>
         </div>
     </body>
 </html>

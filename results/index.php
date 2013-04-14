@@ -13,13 +13,16 @@
         <meta name="keywords" content="system usability scale questionnaire sus" />
         <link rel="shortcut icon" href="../_data/img/icon.gif" />
         <link rel="stylesheet" type="text/css" href="../_data/css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="../_data/css/boxplot.css"/>
         <script type="text/javascript" src="../_data/js/jquery/jquery-1.8.3.js"></script>
         <script type="text/javascript" src="../_data/js/d3/d3.v3.min.js"></script>
+        <script type="text/javascript" src="../_data/js/infovis/infovis.boxplot.js"></script>
+        <script type="text/javascript" src="../_data/js/results.js"></script>
     </head>
     <body>
         <div id="header">
             <h1>SUS Questionnaire Web App</h1>
-            <h2>Help</h2>
+            <h2>Results <?php echo ''; ?></h2>
         </div>
         <div id="navigation">
             <ul>
@@ -38,7 +41,7 @@
             
         </div>
         <div id="footer">
-            
+            <p>Visit our blog at <a href="http://igchi.wordpress.com/">igchi.wordpress.com</a>.</p>
         </div>
     </body>
 </html>
