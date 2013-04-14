@@ -1,0 +1,17 @@
+/* 
+    Document   : style
+    Created on : 2-apr-2013, 12:00:59
+    Author     : Joris Schelfaut
+    Description:
+        
+        Note that first the default CSS is reset.
+*/
+
+root { 
+    display: block;
+}
+
+table {
+    border: #000000 solid thin;
+    padding: 5px;
+}
