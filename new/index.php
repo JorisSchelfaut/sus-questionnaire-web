@@ -27,9 +27,6 @@
                     <a href="../">Home</a>
                 </li>
                 <li>
-                    <a href="">New Questionnaire</a>
-                </li>
-                <li>
                     <a href="../help">Help</a>
                 </li>
             </ul>
