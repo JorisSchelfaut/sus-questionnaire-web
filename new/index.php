@@ -6,7 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>
-            SUS Questionnaire Web App
+            SUS Questionnaire Web App | New Questionnaire
         </title>
         <meta name="language" content="english"/>
         <meta name="description" content="sus questionnaire web app"/>
@@ -19,7 +19,7 @@
     <body>
         <div id="header">
             <h1>SUS Questionnaire Web App</h1>
-            <h2>SUS</h2>
+            <h2>New Questionnaire</h2>
         </div>
         <div id="navigation">
             <ul>

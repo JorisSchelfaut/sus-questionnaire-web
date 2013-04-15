@@ -6,7 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>
-            SUS Questionnaire Web App
+            SUS Questionnaire Web App | Help
         </title>
         <meta name="language" content="english"/>
         <meta name="description" content="sus questionnaire web app"/>

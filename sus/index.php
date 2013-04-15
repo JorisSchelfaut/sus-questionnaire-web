@@ -1,12 +1,12 @@
 <?php
-
+$title = '';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>
-            SUS Questionnaire Web App
+            SUS Questionnaire Web App | SUS Questionnaire <?php echo $title; ?>
         </title>
         <meta name="language" content="english"/>
         <meta name="description" content="sus questionnaire web app"/>
@@ -19,7 +19,7 @@
     <body>
         <div id="header">
             <h1>SUS Questionnaire Web App</h1>
-            <h2>SUS</h2>
+            <h2>SUS Questionnaire <?php echo $title; ?></h2>
         </div>
         <div id="navigation">
             <ul>
