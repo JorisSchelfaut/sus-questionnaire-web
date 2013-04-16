@@ -72,7 +72,7 @@ if (!$questionnaire_result) {
                             </form>
                         </td>
                         <td>
-                        <?php if ($value['closed'] == 0) { ?>
+                        <?php if ($value['closed'] == '0') { ?>
                             <form action="" method="post">
                                 <input type="hidden" name="id" value="<?php echo $questionnaire_id; ?>"/>
                                 <input type="hidden" name="action" value="close_questionnaire"/>

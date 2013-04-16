@@ -54,7 +54,7 @@ class Questionnaire extends Model {
      */
     function questionnaire_open ($_id, $user_id) {
         $sql = 'UPDATE  questionnaire
-                SET     closed = 2
+                SET     closed = 0
                 WHERE   _id = ' . $_id .'
                 AND     user_id = ' . $user_id;
         $result_sql = mysql_query($sql);
