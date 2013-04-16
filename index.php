@@ -31,6 +31,14 @@ if (!empty($_POST['action'])) {
         $database->open_database_connection();
         $questionnaire->questionnaire_delete($_POST['id'], $_SESSION['USER']);
         $database->close_database_connection();
+    } else if($_POST['action'] == 'close_questionnaire' && isset($_SESSION['USER'])) {
+        $database->open_database_connection();
+        $questionnaire->questionnaire_close($_POST['id'], $_SESSION['USER']);
+        $database->close_database_connection();
+    } else if($_POST['action'] == 'open_questionnaire' && isset($_SESSION['USER'])) {
+        $database->open_database_connection();
+        $questionnaire->questionnaire_open($_POST['id'], $_SESSION['USER']);
+        $database->close_database_connection();
     }
 } // END-IF action
 

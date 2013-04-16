@@ -50,7 +50,8 @@ if (!$questionnaire_result) {
                         <td>Title</td><!-- test title -->
                         <td>Share URL</td><!-- FULL URL -->
                         <td>Results URL</td><!-- button -->
-                        <td></td><!-- button -->
+                        <td></td><!-- button delete -->
+                        <td></td><!-- button close -->
                     </tr>
                 </thead>
                 <tbody>
@@ -70,6 +71,21 @@ if (!$questionnaire_result) {
                                 <input type="submit" value="delete" />
                             </form>
                         </td>
+                        <td>
+                        <?php if ($value['closed'] == 0) { ?>
+                            <form action="" method="post">
+                                <input type="hidden" name="id" value="<?php echo $questionnaire_id; ?>"/>
+                                <input type="hidden" name="action" value="close_questionnaire"/>
+                                <input type="submit" value="close" />
+                            </form>
+                        <?php } else { ?>
+                            <form action="" method="post">
+                                <input type="hidden" name="id" value="<?php echo $questionnaire_id; ?>"/>
+                                <input type="hidden" name="action" value="open_questionnaire"/>
+                                <input type="submit" value="open" />
+                            </form>
+                        <?php } ?>
+                        </td>
                     </tr>
             <?php
                 }
@@ -77,6 +93,7 @@ if (!$questionnaire_result) {
                 </tbody>
                 <tfoot>
                     <tr>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>

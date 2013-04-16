@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 15, 2013 at 09:50 AM
+-- Generation Time: Apr 16, 2013 at 11:16 PM
 -- Server version: 5.1.53
 -- PHP Version: 5.3.4
 
@@ -27,10 +27,11 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `questionnaire` (
   `_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'The id of the user_questionnaire table',
-  `user_id` bigint(20) NOT NULL,
-  `title` varchar(256) NOT NULL,
+  `user_id` bigint(20) NOT NULL COMMENT 'The id of the owner of this questionnaire.',
+  `title` varchar(256) NOT NULL COMMENT 'The title of the questionnaire.',
+  `closed` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Whether or not the questionnaire is closed.',
   PRIMARY KEY (`_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `questionnaire`
@@ -56,8 +57,9 @@ CREATE TABLE IF NOT EXISTS `result` (
   `q8` int(11) NOT NULL COMMENT 'I found the system very cumbersome to use.',
   `q9` int(11) NOT NULL COMMENT 'I felt very confident using the system.',
   `q10` int(11) NOT NULL COMMENT 'I needed to learn a lot of things before I could get going with this system.',
+  `comments` text COMMENT 'Additional optional comments on the user test.',
   PRIMARY KEY (`_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `result`
@@ -75,8 +77,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `emailaddress` varchar(256) NOT NULL COMMENT 'The e-mail address of the user associated with this user account.',
   `username` varchar(256) NOT NULL COMMENT 'The username of the user associated with this user account.',
   `password` varchar(256) NOT NULL COMMENT 'The password of the user.',
-  PRIMARY KEY (`_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`_id`),
+  UNIQUE KEY `emailaddress` (`emailaddress`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `user`
