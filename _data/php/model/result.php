@@ -23,6 +23,7 @@ class Result extends Model {
                                     "' . $q8 . '",
                                     "' . $q9 . '",
                                     "' . $q10 . '")';
+        echo $sql;
         $result_sql = mysql_query($sql);
         return $result_sql;
     }

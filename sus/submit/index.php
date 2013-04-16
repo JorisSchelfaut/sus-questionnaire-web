@@ -5,13 +5,15 @@ require_once '../../_data/php/model/result.php';
 
 $database = new Database();
 $result = new Result();
+$success;
 
-$result->open_database_connection();
+$database->open_database_connection();
 $result_result = $result->result_insert($_POST['questionnaire_id'],
         $_POST['susq1'], $_POST['susq2'], $_POST['susq3'], $_POST['susq4'],
         $_POST['susq5'], $_POST['susq6'], $_POST['susq7'], $_POST['susq8'],
         $_POST['susq9'], $_POST['susq10']);
-$result->close_database_connection();
+$success = $result_result;
+$database->close_database_connection();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -44,7 +46,11 @@ $result->close_database_connection();
             </ul>
         </div>
         <div id="content">
+<?php if ($success) { ?>
             <p>Your results were successfully submitted.</p>
+<?php } else { ?>
+            <p>Something went wrong. The results were not submitted.</p>
+<?php } ?>
         </div>
         <div id="footer">
             <p>Visit our blog at <a href="http://igchi.wordpress.com/">igchi.wordpress.com</a>.</p>

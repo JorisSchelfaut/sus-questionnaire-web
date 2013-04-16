@@ -63,110 +63,110 @@ $database->close_database_connection();
                             <td>1</td>
                             <td>I think that I would like to use this system frequently.</td>
                             <td></td>
-                            <td><input type="radio" name="susq1"/></td>
-                            <td><input type="radio" name="susq1"/></td>
-                            <td><input type="radio" name="susq1"/></td>
-                            <td><input type="radio" name="susq1"/></td>
-                            <td><input type="radio" name="susq1"/></td>
+                            <td><input type="radio" name="susq1" value="1"/></td>
+                            <td><input type="radio" name="susq1" value="2"/></td>
+                            <td><input type="radio" name="susq1" value="3"/></td>
+                            <td><input type="radio" name="susq1" value="4"/></td>
+                            <td><input type="radio" name="susq1" value="5"/></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>I found the system unnecessarily complex.</td>
                             <td></td>
-                            <td><input type="radio" name="susq2"/></td>
-                            <td><input type="radio" name="susq2"/></td>
-                            <td><input type="radio" name="susq2"/></td>
-                            <td><input type="radio" name="susq2"/></td>
-                            <td><input type="radio" name="susq2"/></td>
+                            <td><input type="radio" name="susq2" value="1"/></td>
+                            <td><input type="radio" name="susq2" value="2"/></td>
+                            <td><input type="radio" name="susq2" value="3"/></td>
+                            <td><input type="radio" name="susq2" value="4"/></td>
+                            <td><input type="radio" name="susq2" value="5"/></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>I thought the system was easy to use.</td>
                             <td></td>
-                            <td><input type="radio" name="susq3"/></td>
-                            <td><input type="radio" name="susq3"/></td>
-                            <td><input type="radio" name="susq3"/></td>
-                            <td><input type="radio" name="susq3"/></td>
-                            <td><input type="radio" name="susq3"/></td>
+                            <td><input type="radio" name="susq3" value="1"/></td>
+                            <td><input type="radio" name="susq3" value="2"/></td>
+                            <td><input type="radio" name="susq3" value="3"/></td>
+                            <td><input type="radio" name="susq3" value="4"/></td>
+                            <td><input type="radio" name="susq3" value="5"/></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>4</td>
                             <td>I think that I would need the support of a technical person to be able to use this system.</td>
                             <td></td>
-                            <td><input type="radio" name="susq4"/></td>
-                            <td><input type="radio" name="susq4"/></td>
-                            <td><input type="radio" name="susq4"/></td>
-                            <td><input type="radio" name="susq4"/></td>
-                            <td><input type="radio" name="susq4"/></td>
+                            <td><input type="radio" name="susq4" value="1"/></td>
+                            <td><input type="radio" name="susq4" value="2"/></td>
+                            <td><input type="radio" name="susq4" value="3"/></td>
+                            <td><input type="radio" name="susq4" value="4"/></td>
+                            <td><input type="radio" name="susq4" value="5"/></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td>I found the various functions in this system were well integrated.</td>
                             <td></td>
-                            <td><input type="radio" name="susq5"/></td>
-                            <td><input type="radio" name="susq5"/></td>
-                            <td><input type="radio" name="susq5"/></td>
-                            <td><input type="radio" name="susq5"/></td>
-                            <td><input type="radio" name="susq5"/></td>
+                            <td><input type="radio" name="susq5" value="1"/></td>
+                            <td><input type="radio" name="susq5" value="2"/></td>
+                            <td><input type="radio" name="susq5" value="3"/></td>
+                            <td><input type="radio" name="susq5" value="4"/></td>
+                            <td><input type="radio" name="susq5" value="5"/></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>6</td>
                             <td>I thought there was too much inconsistency in this system.</td>
                             <td></td>
-                            <td><input type="radio" name="susq6"/></td>
-                            <td><input type="radio" name="susq6"/></td>
-                            <td><input type="radio" name="susq6"/></td>
-                            <td><input type="radio" name="susq6"/></td>
-                            <td><input type="radio" name="susq6"/></td>
+                            <td><input type="radio" name="susq6" value="1"/></td>
+                            <td><input type="radio" name="susq6" value="2"/></td>
+                            <td><input type="radio" name="susq6" value="3"/></td>
+                            <td><input type="radio" name="susq6" value="4"/></td>
+                            <td><input type="radio" name="susq6" value="5"/></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>7</td>
                             <td>I would imagine that most people would learn to use this system very quickly.</td>
                             <td></td>
-                            <td><input type="radio" name="susq7"/></td>
-                            <td><input type="radio" name="susq7"/></td>
-                            <td><input type="radio" name="susq7"/></td>
-                            <td><input type="radio" name="susq7"/></td>
-                            <td><input type="radio" name="susq7"/></td>
+                            <td><input type="radio" name="susq7" value="1"/></td>
+                            <td><input type="radio" name="susq7" value="2"/></td>
+                            <td><input type="radio" name="susq7" value="3"/></td>
+                            <td><input type="radio" name="susq7" value="4"/></td>
+                            <td><input type="radio" name="susq7" value="5"/></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>8</td>
                             <td>I found the system very cumbersome to use.</td>
                             <td></td>
-                            <td><input type="radio" name="susq8"/></td>
-                            <td><input type="radio" name="susq8"/></td>
-                            <td><input type="radio" name="susq8"/></td>
-                            <td><input type="radio" name="susq8"/></td>
-                            <td><input type="radio" name="susq8"/></td>
+                            <td><input type="radio" name="susq8" value="1"/></td>
+                            <td><input type="radio" name="susq8" value="2"/></td>
+                            <td><input type="radio" name="susq8" value="3"/></td>
+                            <td><input type="radio" name="susq8" value="4"/></td>
+                            <td><input type="radio" name="susq8" value="5"/></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>9</td>
                             <td>I felt very confident using the system.</td>
                             <td></td>
-                            <td><input type="radio" name="susq9"/></td>
-                            <td><input type="radio" name="susq9"/></td>
-                            <td><input type="radio" name="susq9"/></td>
-                            <td><input type="radio" name="susq9"/></td>
-                            <td><input type="radio" name="susq9"/></td>
+                            <td><input type="radio" name="susq9" value="1"/></td>
+                            <td><input type="radio" name="susq9" value="2"/></td>
+                            <td><input type="radio" name="susq9" value="3"/></td>
+                            <td><input type="radio" name="susq9" value="4"/></td>
+                            <td><input type="radio" name="susq9" value="5"/></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>10</td>
                             <td>I needed to learn a lot of things before I could get going with this system.</td>
                             <td></td>
-                            <td><input type="radio" name="susq10"/></td>
-                            <td><input type="radio" name="susq10"/></td>
-                            <td><input type="radio" name="susq10"/></td>
-                            <td><input type="radio" name="susq10"/></td>
-                            <td><input type="radio" name="susq10"/></td>
+                            <td><input type="radio" name="susq10" value="1"/></td>
+                            <td><input type="radio" name="susq10" value="2"/></td>
+                            <td><input type="radio" name="susq10" value="3"/></td>
+                            <td><input type="radio" name="susq10" value="4"/></td>
+                            <td><input type="radio" name="susq10" value="5"/></td>
                             <td></td>
                         </tr>
                     </tbody>
