@@ -2,8 +2,8 @@
 
 // AUTHENTICATION
 require_once '_data/php/model/auth.php';
-$logged_in = false;
 $auth = new Auth();
+$logged_in = isset($_SESSION['USER']);
 
 if (!empty($_POST['action'])) {
     if ($_POST['action'] == 'login') {
@@ -16,11 +16,6 @@ if (!empty($_POST['action'])) {
         echo 'Undefined action.';
     }
 } // END-IF action
-
-if (isset($_SESSION['USER'])) {
-    echo 'USER ID == ' . $_SESSION['USER'] . '';
-    $logged_in = true;
-} // END-IF session
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -69,7 +64,6 @@ if (isset($_SESSION['USER'])) {
             <?php
                 if ($logged_in) {
                     include_once 'dashboard.php';
-                    dashboard();
                 } else {
                     include 'authentication.php';
                 }

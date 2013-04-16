@@ -54,7 +54,6 @@ class User extends Model {
                 FROM    user AS u
                 WHERE   u.emailaddress = "' . $email_address . '"
                 AND     u.password = "' . $password . '"';
-        echo $sql;
         $result = mysql_query($sql);
         $this->close_database_connection();
         return $result;
