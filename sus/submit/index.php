@@ -5,15 +5,18 @@ require_once '../../_data/php/model/result.php';
 
 $database = new Database();
 $result = new Result();
-$success;
+$success = false;
+$title = '';
 
-$database->open_database_connection();
-$result_result = $result->result_insert($_POST['questionnaire_id'],
-        $_POST['susq1'], $_POST['susq2'], $_POST['susq3'], $_POST['susq4'],
-        $_POST['susq5'], $_POST['susq6'], $_POST['susq7'], $_POST['susq8'],
-        $_POST['susq9'], $_POST['susq10']);
-$success = $result_result;
-$database->close_database_connection();
+if ($_POST['action'] == 'insert_result') {
+    $database->open_database_connection();
+    $result_result = $result->result_insert($_POST['questionnaire_id'],
+            $_POST['susq1'], $_POST['susq2'], $_POST['susq3'], $_POST['susq4'],
+            $_POST['susq5'], $_POST['susq6'], $_POST['susq7'], $_POST['susq8'],
+            $_POST['susq9'], $_POST['susq10']);
+    $success = $result_result;
+    $database->close_database_connection();
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">

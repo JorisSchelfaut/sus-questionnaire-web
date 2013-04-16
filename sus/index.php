@@ -43,7 +43,7 @@ $database->close_database_connection();
             </ul>
         </div>
         <div id="content">
-            <form action="submit" method="post">
+            <form action="submit" method="post" id="form-result">
                 <table>
                     <thead>
                         <tr>
@@ -178,7 +178,7 @@ $database->close_database_connection();
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td><input type="hidden" name="action" value="<?php echo $questionnaire_id; ?>"/></td>
+                            <td><input type="hidden" name="questionnaire_id" value="<?php echo $questionnaire_id; ?>"/></td>
                             <td><input type="hidden" name="action" value="insert_result"/></td>
                             <td><input type="submit" value="submit" /></td>
                         </tr>
