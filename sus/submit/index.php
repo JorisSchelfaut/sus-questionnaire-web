@@ -8,6 +8,16 @@ $result = new Result();
 $success = false;
 $title = '';
 
+$questionnaire = new Questionnaire();
+$questionnaire_id = $_GET['id'];
+$database->open_database_connection();
+$questionnaire_result = $questionnaire->questionnaire_select_by_id($questionnaire_id);
+
+$row = mysql_fetch_row($questionnaire_result);
+$title = $row[2]; // title is the third column
+$closed = $row[3]; // closed is the fourth column
+$database->close_database_connection();
+
 if ($_POST['action'] == 'insert_result') {
     $database->open_database_connection();
     $result_result = $result->result_insert($_POST['questionnaire_id'],
