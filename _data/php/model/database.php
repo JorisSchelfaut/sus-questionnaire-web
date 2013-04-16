@@ -16,8 +16,7 @@ class Database {
      */
     public function open_database_connection() {
         global $connection, $dbhost, $dbname, $dbpass, $dbuser;
-        $connection = mysql_connect($dbhost, $dbuser, $dbpass)
-                or die('Could not connect to MySQL: ' . mysql_error());
+        $connection = mysql_connect($dbhost, $dbuser, $dbpass) or die('Could not connect to MySQL: ' . mysql_error());
         mysql_select_db($dbname);
     }
     

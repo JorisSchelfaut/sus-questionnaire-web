@@ -9,7 +9,7 @@ $database->open_database_connection();
 $questionnaire_result = $questionnaire->questionnaire_select_by_id($questionnaire_id);
 
 $row = mysql_fetch_row($questionnaire_result);
-$title = $row[0]['title'];
+$title = $row[2]; // title is the third column
 $database->close_database_connection();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -43,7 +43,7 @@ $database->close_database_connection();
             </ul>
         </div>
         <div id="content">
-            <form action="submit" method="post" id="form-result">
+            <form action="submit/" method="post" id="form-result">
                 <table>
                     <thead>
                         <tr>
@@ -60,7 +60,7 @@ $database->close_database_connection();
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
+                            <td>1.</td>
                             <td>I think that I would like to use this system frequently.</td>
                             <td></td>
                             <td><input type="radio" name="susq1" value="1"/></td>
@@ -71,7 +71,7 @@ $database->close_database_connection();
                             <td></td>
                         </tr>
                         <tr>
-                            <td>2</td>
+                            <td>2.</td>
                             <td>I found the system unnecessarily complex.</td>
                             <td></td>
                             <td><input type="radio" name="susq2" value="1"/></td>
@@ -82,7 +82,7 @@ $database->close_database_connection();
                             <td></td>
                         </tr>
                         <tr>
-                            <td>3</td>
+                            <td>3.</td>
                             <td>I thought the system was easy to use.</td>
                             <td></td>
                             <td><input type="radio" name="susq3" value="1"/></td>
@@ -93,7 +93,7 @@ $database->close_database_connection();
                             <td></td>
                         </tr>
                         <tr>
-                            <td>4</td>
+                            <td>4.</td>
                             <td>I think that I would need the support of a technical person to be able to use this system.</td>
                             <td></td>
                             <td><input type="radio" name="susq4" value="1"/></td>
@@ -104,7 +104,7 @@ $database->close_database_connection();
                             <td></td>
                         </tr>
                         <tr>
-                            <td>5</td>
+                            <td>5.</td>
                             <td>I found the various functions in this system were well integrated.</td>
                             <td></td>
                             <td><input type="radio" name="susq5" value="1"/></td>
@@ -115,7 +115,7 @@ $database->close_database_connection();
                             <td></td>
                         </tr>
                         <tr>
-                            <td>6</td>
+                            <td>6.</td>
                             <td>I thought there was too much inconsistency in this system.</td>
                             <td></td>
                             <td><input type="radio" name="susq6" value="1"/></td>
@@ -126,7 +126,7 @@ $database->close_database_connection();
                             <td></td>
                         </tr>
                         <tr>
-                            <td>7</td>
+                            <td>7.</td>
                             <td>I would imagine that most people would learn to use this system very quickly.</td>
                             <td></td>
                             <td><input type="radio" name="susq7" value="1"/></td>
@@ -137,7 +137,7 @@ $database->close_database_connection();
                             <td></td>
                         </tr>
                         <tr>
-                            <td>8</td>
+                            <td>8.</td>
                             <td>I found the system very cumbersome to use.</td>
                             <td></td>
                             <td><input type="radio" name="susq8" value="1"/></td>
@@ -148,7 +148,7 @@ $database->close_database_connection();
                             <td></td>
                         </tr>
                         <tr>
-                            <td>9</td>
+                            <td>9.</td>
                             <td>I felt very confident using the system.</td>
                             <td></td>
                             <td><input type="radio" name="susq9" value="1"/></td>
@@ -159,7 +159,7 @@ $database->close_database_connection();
                             <td></td>
                         </tr>
                         <tr>
-                            <td>10</td>
+                            <td>10.</td>
                             <td>I needed to learn a lot of things before I could get going with this system.</td>
                             <td></td>
                             <td><input type="radio" name="susq10" value="1"/></td>

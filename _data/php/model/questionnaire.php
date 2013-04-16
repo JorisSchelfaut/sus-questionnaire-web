@@ -22,11 +22,13 @@ class Questionnaire extends Model {
     
     /**
      * @param type $_id
+     * @param type $user_id
      * @return type
      */
-    function questionnaire_delete ($_id) {
+    function questionnaire_delete ($_id, $user_id) {
         $sql = 'DELETE FROM questionnaire
-                WHERE _id = ' . $_id;
+                WHERE _id = ' . $_id .'
+                AND   user_id = ' . $user_id;
         $result_sql = mysql_query($sql);
         return $result_sql;
     }
@@ -40,7 +42,6 @@ class Questionnaire extends Model {
         $sql = 'SELECT  q._id AS id, q.user_id AS user, q.title AS title
                 FROM    questionnaire AS q
                 WHERE   q._id = ' . $_id;
-        echo $sql;
         $result_sql = mysql_query($sql);
         return $result_sql;
     }

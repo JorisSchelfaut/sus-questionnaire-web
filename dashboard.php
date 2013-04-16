@@ -37,7 +37,6 @@ if (!$questionnaire_result) {
                     <tr>
                         <td>
                             <input type="hidden" name="action" value="insert_questionnaire"/>
-                            <input type="hidden" name="user_id" value="<?php echo $user_id; ?>"/>
                         </td>
                         <td><input type="submit" value="Submit"/></td>
                     </tr>
@@ -48,10 +47,10 @@ if (!$questionnaire_result) {
             <table>
                 <thead>
                     <tr>
-                        <td>Name</td><!-- test title -->
-                        <td>Share</td><!-- FULL URL -->
-                        <td>Results</td><!-- button -->
-                        <td>Delete</td><!-- button -->
+                        <td>Title</td><!-- test title -->
+                        <td>Share URL</td><!-- FULL URL -->
+                        <td>Results URL</td><!-- button -->
+                        <td></td><!-- button -->
                     </tr>
                 </thead>
                 <tbody>
@@ -62,12 +61,8 @@ if (!$questionnaire_result) {
             ?>
                     <tr>
                         <td><?php echo $title; ?></td><!-- TITLE -->
-                        <td><a href="sus/?id=<?php echo $questionnaire_id; ?>" target="_blank"><?php echo 'results/?id=' . $questionnaire_id; ?></a></td><!-- URL -->
-                        <td>
-                            <form action="results/?id=<?php echo $questionnaire_id; ?>&user=<?php echo $questionnaire_id; ?>" method="post">
-                                <input type="submit" value="results" />
-                            </form>
-                        </td>
+                        <td><a href="sus/?id=<?php echo $questionnaire_id; ?>" target="_blank"><?php echo 'sus/?id=' . $questionnaire_id; ?></a></td><!-- URL -->
+                        <td><a href="results/?id=<?php echo $questionnaire_id; ?>&user=<?php echo $questionnaire_id; ?>" target="_blank">results/?id=<?php echo $questionnaire_id; ?>&user=<?php echo $questionnaire_id; ?></a></td><!-- URL -->
                         <td>
                             <form action="" method="post">
                                 <input type="hidden" name="id" value="<?php echo $questionnaire_id; ?>"/>

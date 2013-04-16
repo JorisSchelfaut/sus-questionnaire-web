@@ -4,6 +4,9 @@ require_once '_data/php/model/database.php';
 require_once '_data/php/model/auth.php';
 require_once '_data/php/model/user.php';
 require_once '_data/php/model/questionnaire.php';
+
+session_start();
+
 $auth = new Auth();
 $database = new Database();
 $questionnaire = new Questionnaire();
@@ -20,13 +23,13 @@ if (!empty($_POST['action'])) {
         $database->close_database_connection();
     } else if($_POST['action'] == 'logout') {
         $logged_in = $auth->logout();
-    } else if($_POST['action'] == 'insert_questionnaire') {
+    } else if($_POST['action'] == 'insert_questionnaire' && isset($_SESSION['USER'])) {
         $database->open_database_connection();
-        $questionnaire->questionnaire_insert($_POST['user_id'], $_POST['title']);
+        $questionnaire->questionnaire_insert($_SESSION['USER'], $_POST['title']);
         $database->close_database_connection();
-    } else if($_POST['action'] == 'delete_questionnaire') {
+    } else if($_POST['action'] == 'delete_questionnaire' && isset($_SESSION['USER'])) {
         $database->open_database_connection();
-        $questionnaire->questionnaire_delete($_POST['id']);
+        $questionnaire->questionnaire_delete($_POST['id'], $_SESSION['USER']);
         $database->close_database_connection();
     }
 } // END-IF action
