@@ -1,4 +1,5 @@
 <?php
+require_once 'database.php';
 require_once 'model.php';
 /**
  * Questionnaire class.
@@ -12,12 +13,10 @@ class Questionnaire extends Model {
      * @return boolean
      */
     function questionnaire_insert($user_id, $title) {
-        $this->open_database_connection();
         $sql = 'INSERT INTO questionnaire (user_id, title)
                 VALUES                    ("' . $user_id . '",
                                            "' . $title . '")';
         $result_sql = mysql_query($sql);
-        $this->close_database_connection();
         return $result_sql;
     }
     
@@ -26,11 +25,9 @@ class Questionnaire extends Model {
      * @return type
      */
     function questionnaire_delete ($_id) {
-        $this->open_database_connection();
         $sql = 'DELETE FROM questionnaire
                 WHERE _id = ' . $_id;
         $result_sql = mysql_query($sql);
-        $this->close_database_connection();
         return $result_sql;
     }
 
@@ -40,12 +37,11 @@ class Questionnaire extends Model {
      * @return  mysql result
      */
     function questionnaire_select_by_id($_id) {
-        $this->open_database_connection();
-        $sql = 'SELECT  _id, user_id, title
+        $sql = 'SELECT  q._id AS id, q.user_id AS user, q.title AS title
                 FROM    questionnaire AS q
                 WHERE   q._id = ' . $_id;
+        echo $sql;
         $result_sql = mysql_query($sql);
-        $this->close_database_connection();
         return $result_sql;
     }
 
@@ -55,12 +51,10 @@ class Questionnaire extends Model {
      * @return  mysql result
      */
     function questionnaire_select_all_by_user_id($user_id) {
-        $this->open_database_connection();
-        $sql = 'SELECT  _id, user_id, title
+        $sql = 'SELECT  q._id, q.user_id, q.title
                 FROM    questionnaire AS q
                 WHERE   q.user_id = ' . $user_id;
         $result_sql = mysql_query($sql);
-        $this->close_database_connection();
         return $result_sql;
     }
 
@@ -69,11 +63,9 @@ class Questionnaire extends Model {
      * @return mysql result
      */
     function questionnaire_select_all() {
-        $this->open_database_connection();
-        $sql = 'SELECT  _id, user_id, title
-                FROM    questionnaire';
+        $sql = 'SELECT  q._id, q.user_id, q.title
+                FROM    questionnaire AS q';
         $result_sql = mysql_query($sql);
-        $this->close_database_connection();
         return $result_sql;
     }
 }

@@ -1,23 +1,33 @@
 <?php
 // AUTHENTICATION
+require_once '_data/php/model/database.php';
 require_once '_data/php/model/auth.php';
 require_once '_data/php/model/user.php';
 require_once '_data/php/model/questionnaire.php';
 $auth = new Auth();
+$database = new Database();
 $questionnaire = new Questionnaire();
 $logged_in = isset($_SESSION['USER']);
 
 if (!empty($_POST['action'])) {
     if ($_POST['action'] == 'login') {
+        $database->open_database_connection();
         $logged_in = $auth->login($_POST['email'], $_POST['password']);
+        $database->close_database_connection();
     } else if ($_POST['action'] == 'register') {
+        $database->open_database_connection();
         $logged_in = $auth->register($_POST['email'], $_POST['password'], $_POST['username']);
+        $database->close_database_connection();
     } else if($_POST['action'] == 'logout') {
         $logged_in = $auth->logout();
     } else if($_POST['action'] == 'insert_questionnaire') {
+        $database->open_database_connection();
         $questionnaire->questionnaire_insert($_POST['user_id'], $_POST['title']);
+        $database->close_database_connection();
     } else if($_POST['action'] == 'delete_questionnaire') {
+        $database->open_database_connection();
         $questionnaire->questionnaire_delete($_POST['id']);
+        $database->close_database_connection();
     }
 } // END-IF action
 

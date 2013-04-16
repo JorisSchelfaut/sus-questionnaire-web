@@ -15,13 +15,11 @@ class User extends Model {
     public function user_insert($email_address, $user_name, $password) {
         $salt = 'igCHI';
         $password = hash('sha256', $password . $salt);
-        $this->open_database_connection();
         $sql = 'INSERT INTO user (username, emailaddress, password)
                 VALUES           ("' . $user_name . '",
                                   "' . $email_address . '",
                                   "' . $password . '")';
         $result = mysql_query($sql);
-        $this->close_database_connection();
         return $result;
     }
 
@@ -31,12 +29,10 @@ class User extends Model {
      * @return  [array['_id'], array['username'], array['emailaddress'], array['password']]
      */
     public function user_select_by_id($_id) {
-        $this->open_database_connection();
         $sql = 'SELECT  _id, username, emailaddress, password
                 FROM    user AS u
                 WHERE   u._id = ' . $_id;
         $result = mysql_query($sql);
-        $this->close_database_connection();
         return $result;
     }
 
@@ -49,13 +45,11 @@ class User extends Model {
     public function user_select_by_credentials($email_address, $password) {
         $salt = 'igCHI';
         $password = hash('sha256', $password . $salt);
-        $this->open_database_connection();
         $sql = 'SELECT  _id
                 FROM    user AS u
                 WHERE   u.emailaddress = "' . $email_address . '"
                 AND     u.password = "' . $password . '"';
         $result = mysql_query($sql);
-        $this->close_database_connection();
         return $result;
     }
 
@@ -64,11 +58,9 @@ class User extends Model {
      * @return mysql result
      */
     public function user_select_all() {
-        $this->open_database_connection();
         $sql = 'SELECT  username, emailaddress, password
                 FROM    user';
         $result = mysql_query($sql);
-        $this->close_database_connection();
         return $result;
     }
 }

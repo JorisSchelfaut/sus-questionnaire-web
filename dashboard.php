@@ -1,10 +1,14 @@
 <?php
+require_once '_data/php/model/database.php';
 require_once '_data/php/model/questionnaire.php';
 require_once '_data/php/model/user.php';
 
 $user_id = $_SESSION['USER'];
+$database = new Database();
 $questionnaire = new Questionnaire();
 $user = new User();
+$database->open_database_connection();
+
 $user_result = $user->user_select_by_id($user_id);
 $questionnaire_result = $questionnaire->questionnaire_select_all_by_user_id($user_id);
 
@@ -79,3 +83,7 @@ if (!$questionnaire_result) {
                     </tr>
                 </tfoot>
             </table>
+
+<?php
+$database->close_database_connection();
+?>
