@@ -43,7 +43,6 @@ class Auth {
             return false;
         } else {
             $_id = mysql_insert_id();
-            session_start();
             $_SESSION['USER'] = $_id;
             return true;
         }

@@ -13,8 +13,8 @@ $title = $row[2]; // title is the third column
 $closed = $row[3]; // closed is the fourth column
 $database->close_database_connection();
 
-if ($closed == 1) {
-    header('Location : ' . 'error?id=' . $questionnaire_id);
+if ($closed == '1') {
+    header('Location: ' . 'error/?id=' . $questionnaire_id);
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
