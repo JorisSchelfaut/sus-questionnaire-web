@@ -1,5 +1,5 @@
 <?php
-require 'model.php';
+require_once 'model.php';
 /**
  * Questionnaire class.
  */
@@ -29,7 +29,7 @@ class Questionnaire extends Model {
     function questionnaire_select_by_id($_id) {
         $this->open_database_connection();
         $sql = 'SELECT  _id, user_id, title
-                FROM    questionnaire
+                FROM    questionnaire AS q
                 WHERE   q._id = ' . $_id;
         $result_sql = mysql_query($sql);
         $this->close_database_connection();
@@ -44,7 +44,7 @@ class Questionnaire extends Model {
     function questionnaire_select_all_by_user_id($user_id) {
         $this->open_database_connection();
         $sql = 'SELECT  _id, user_id, title
-                FROM    questionnaire q
+                FROM    questionnaire AS q
                 WHERE   q.user_id = ' . $user_id;
         $result_sql = mysql_query($sql);
         $this->close_database_connection();

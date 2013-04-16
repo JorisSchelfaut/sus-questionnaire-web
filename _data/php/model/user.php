@@ -1,5 +1,5 @@
 <?php
-require 'model.php';
+require_once 'model.php';
 /**
  * User class.
  */
@@ -33,7 +33,7 @@ class User extends Model {
     public function user_select_by_id($_id) {
         $this->open_database_connection();
         $sql = 'SELECT  _id, username, emailaddress, password
-                FROM    user u
+                FROM    user AS u
                 WHERE   u._id = ' . $_id;
         $result = mysql_query($sql);
         $this->close_database_connection();
@@ -51,9 +51,10 @@ class User extends Model {
         $password = hash('sha256', $password . $salt);
         $this->open_database_connection();
         $sql = 'SELECT  _id
-                FROM    user u
-                WHERE   u.emailaddress = ' . $email_address . '
-                AND     u.password = ' . $password;
+                FROM    user AS u
+                WHERE   u.emailaddress = "' . $email_address . '"
+                AND     u.password = "' . $password . '"';
+        echo $sql;
         $result = mysql_query($sql);
         $this->close_database_connection();
         return $result;

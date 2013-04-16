@@ -1,5 +1,5 @@
 <?php
-require 'model.php';
+require_once 'model.php';
 /**
  * Result class.
  */
@@ -36,7 +36,7 @@ class Result extends Model {
     function result_select_by_id($_id) {
         $this->open_database_connection();
         $sql = 'SELECT  _id, questionnaire_id, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10
-                FROM    result r
+                FROM    result AS r
                 WHERE   r._id = ' . $_id;
         $result_sql = mysql_query($sql);
         $this->close_database_connection();
@@ -51,7 +51,7 @@ class Result extends Model {
     function result_select_all_by_questionnaire_id($questionnaire_id) {
         $this->open_database_connection();
         $sql = 'SELECT  _id, questionnaire_id, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10
-                FROM    result r
+                FROM    result AS r
                 WHERE   r.questionnaire_id = ' . $questionnaire_id;
         $result_sql = mysql_query($sql);
         $this->close_database_connection();

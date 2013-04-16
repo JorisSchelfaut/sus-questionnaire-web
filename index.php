@@ -1,15 +1,27 @@
 <?php
 
 // AUTHENTICATION
-include_once 'authentication.php';
+require_once '_data/php/model/auth.php';
 $logged_in = false;
+$auth = new Auth();
+
 if (!empty($_POST['action'])) {
     if ($_POST['action'] == 'login') {
-        login();
-    } else if ($_POST['action'] == 'login') {
-        
+        $logged_in = $auth->login($_POST['email'], $_POST['password']);
+    } else if ($_POST['action'] == 'register') {
+        $logged_in = $auth->register($_POST['email'], $_POST['password'], $_POST['username']);
+    } else if($_POST['action'] == 'logout') {
+        $logged_in = $auth->logout();
+    } else {
+        echo 'Undefined action.';
     }
-}
+} // END-IF action
+
+if (isset($_SESSION['USER'])) {
+    echo 'USER ID == ' . $_SESSION['USER'] . '';
+    $logged_in = true;
+} // END-IF session
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -31,6 +43,18 @@ if (!empty($_POST['action'])) {
             <h1>SUS Questionnaire Web App</h1>
             <h2>Home</h2>
         </div>
+        <div>
+<?php 
+    if ($logged_in) {
+?>
+            <form action="" method="post" id="form-logout">
+                <input type="hidden" name="action" value="logout"/>
+                <input type="submit" value="Logout"/>
+            </form>
+<?php
+    }
+?>
+        </div>
         <div id="navigation">
             <ul>
                 <li>
@@ -47,7 +71,7 @@ if (!empty($_POST['action'])) {
                     include_once 'dashboard.php';
                     dashboard();
                 } else {
-                    authentication();
+                    include 'authentication.php';
                 }
             ?>
         </div>
