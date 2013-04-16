@@ -20,6 +20,19 @@ class Questionnaire extends Model {
         $this->close_database_connection();
         return $result_sql;
     }
+    
+    /**
+     * @param type $_id
+     * @return type
+     */
+    function questionnaire_delete ($_id) {
+        $this->open_database_connection();
+        $sql = 'DELETE FROM questionnaire
+                WHERE _id = ' . $_id;
+        $result_sql = mysql_query($sql);
+        $this->close_database_connection();
+        return $result_sql;
+    }
 
     /**
      * <p>Select a questionnaire by id.</p>

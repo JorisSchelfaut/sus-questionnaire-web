@@ -1,8 +1,10 @@
 <?php
-
 // AUTHENTICATION
 require_once '_data/php/model/auth.php';
+require_once '_data/php/model/user.php';
+require_once '_data/php/model/questionnaire.php';
 $auth = new Auth();
+$questionnaire = new Questionnaire();
 $logged_in = isset($_SESSION['USER']);
 
 if (!empty($_POST['action'])) {
@@ -12,8 +14,10 @@ if (!empty($_POST['action'])) {
         $logged_in = $auth->register($_POST['email'], $_POST['password'], $_POST['username']);
     } else if($_POST['action'] == 'logout') {
         $logged_in = $auth->logout();
-    } else {
-        echo 'Undefined action.';
+    } else if($_POST['action'] == 'insert_questionnaire') {
+        $questionnaire->questionnaire_insert($_POST['user_id'], $_POST['title']);
+    } else if($_POST['action'] == 'delete_questionnaire') {
+        $questionnaire->questionnaire_delete($_POST['id']);
     }
 } // END-IF action
 
