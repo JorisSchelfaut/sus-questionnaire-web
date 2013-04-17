@@ -31,6 +31,7 @@ $database->close_database_connection();
         <script type="text/javascript" src="../_data/js/d3/d3.v3.min.js"></script>
         <script type="text/javascript" src="../_data/js/purl/purl.js"></script>
         <script type="text/javascript" src="../_data/js/infovis/infovis.boxplot.js"></script>
+        <script type="text/javascript" src="../_data/js/infovis/infovis.boxplot.custom.js"></script>
         <script type="text/javascript" src="../_data/js/results.js"></script>
     </head>
     <body>
@@ -49,10 +50,60 @@ $database->close_database_connection();
             </ul>
         </div>
         <div id="content">
-        <!--
-            TOTAL AVG SCORE + BOX PLOT
-            AVG SCORE / QUESTION + BOX PLOT
-        -->
+            <div id="questionnaire-info">
+                <h3>Info</h3>
+                <?php
+                    if ($closed) {
+                ?>
+                <p>This questionnaire has been closed. The results are considered final.</p>
+                <?php
+                    } else {
+                ?>
+                <p>This questionnaire has not been closed. The results may still change.</p>
+                <?php
+                    }
+                ?>
+            </div>
+            <!--
+                TOTAL AVG SCORE + BOX PLOT
+                AVG SCORE / QUESTION + BOX PLOT
+            -->
+            <div id="results-overall">
+                <h3>Overall results</h3>
+            </div>
+            <div id="results-questions">
+                <h3>Results for each question</h3>
+                <div id="results-q1">
+                    <h4>I think that I would like to use this system frequently.</h4>
+                </div>
+                <div id="results-q2">
+                    <h4>I found the system unnecessarily complex.</h4>
+                </div>
+                <div id="results-q3">
+                    <h4>I thought the system was easy to use.</h4>
+                </div>
+                <div id="results-q4">
+                    <h4>I think that I would need the support of a technical person to be able to use this system.	</h4>
+                </div>
+                <div id="results-q5">
+                    <h4>I found the various functions in this system were well integrated.</h4>
+                </div>
+                <div id="results-q6">
+                    <h4>I thought there was too much inconsistency in this system.</h4>
+                </div>
+                <div id="results-q7">
+                    <h4>I would imagine that most people would learn to use this system very quickly.</h4>
+                </div>
+                <div id="results-q8">
+                    <h4>I found the system very cumbersome to use.</h4>
+                </div>
+                <div id="results-q9">
+                    <h4>I felt very confident using the system.</h4>
+                </div>
+                <div id="results-q10">
+                    <h4>I needed to learn a lot of things before I could get going with this system.</h4>
+                </div>
+            </div>
         </div>
         <div id="footer">
             <p>Visit our blog at <a href="http://igchi.wordpress.com/">igchi.wordpress.com</a>.</p>

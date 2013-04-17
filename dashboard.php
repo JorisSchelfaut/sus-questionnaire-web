@@ -66,7 +66,7 @@ if (!$questionnaire_result) {
                     <tr>
                         <td><?php echo $title; ?></td><!-- TITLE -->
                         <td><a href="sus/?id=<?php echo $questionnaire_id; ?>" target="_blank"><?php echo 'sus/?id=' . $questionnaire_id; ?></a></td><!-- URL -->
-                        <td><a href="results/?id=<?php echo $questionnaire_id; ?>&user=<?php echo $questionnaire_id; ?>" target="_blank">results/?id=<?php echo $questionnaire_id; ?>&user=<?php echo $questionnaire_id; ?></a></td><!-- URL -->
+                        <td><a href="results/?id=<?php echo $questionnaire_id; ?>" target="_blank">results/?id=<?php echo $questionnaire_id; ?></a></td><!-- URL -->
                         <td>
                             <form action="" method="post">
                                 <input type="hidden" name="id" value="<?php echo $questionnaire_id; ?>"/>
