@@ -48,7 +48,10 @@ $database->close_database_connection();
             </ul>
         </div>
         <div id="content">
-            
+        <!--
+            TOTAL AVG SCORE + BOX PLOT
+            AVG SCORE / QUESTION + BOX PLOT
+        -->
         </div>
         <div id="footer">
             <p>Visit our blog at <a href="http://igchi.wordpress.com/">igchi.wordpress.com</a>.</p>
