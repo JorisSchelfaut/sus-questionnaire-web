@@ -7,10 +7,32 @@ require_once 'model.php';
 class Result extends Model {
     
     /**
-     * <p>Inserts a new record in the <code>result</code> table.</p>
-     * @return Boolean
+     * 
+     * @param type $questionnaire_id
+     * @param type $q1
+     * @param type $q2
+     * @param type $q3
+     * @param type $q4
+     * @param type $q5
+     * @param type $q6
+     * @param type $q7
+     * @param type $q8
+     * @param type $q9
+     * @param type $q10
+     * @return type
      */
     function result_insert($questionnaire_id, $q1, $q2, $q3, $q4, $q5, $q6, $q7, $q8, $q9, $q10) {
+        $questionnaire_id = mysql_real_escape_string($questionnaire_id);
+        $q1 = mysql_real_escape_string($q1);
+        $q2 = mysql_real_escape_string($q2);
+        $q3 = mysql_real_escape_string($q3);
+        $q4 = mysql_real_escape_string($q4);
+        $q5 = mysql_real_escape_string($q5);
+        $q6 = mysql_real_escape_string($q6);
+        $q7 = mysql_real_escape_string($q7);
+        $q8 = mysql_real_escape_string($q8);
+        $q9 = mysql_real_escape_string($q9);
+        $q10 = mysql_real_escape_string($q10);
         $score = $this->calculate_score($q1, $q2, $q3, $q4, $q5, $q6, $q7, $q8, $q9, $q10);
         $sql = 'INSERT INTO result (questionnaire_id, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, score)
                 VALUES             ("' . $questionnaire_id . '",
@@ -59,6 +81,7 @@ class Result extends Model {
      * @return  mysql result
      */
     function result_select_by_id($_id) {
+        $_id = mysql_real_escape_string($_id);
         $sql = 'SELECT  _id, questionnaire_id, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10
                 FROM    result
                 WHERE   _id = ' . $_id;
@@ -72,6 +95,7 @@ class Result extends Model {
      * @return  mysql result
      */
     function result_select_all_by_questionnaire_id($questionnaire_id) {
+        $questionnaire_id = mysql_real_escape_string($questionnaire_id);
         $sql = 'SELECT  _id AS id, questionnaire_id AS q_id, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, score
                 FROM    result
                 WHERE   questionnaire_id = ' . $questionnaire_id;

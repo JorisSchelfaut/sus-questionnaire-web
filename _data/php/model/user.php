@@ -13,6 +13,9 @@ class User extends Model {
      * @return Boolean
      */
     public function user_insert($email_address, $user_name, $password) {
+        $email_address = mysql_real_escape_string($email_address);
+        $user_name = mysql_real_escape_string($user_name);
+        $password = mysql_real_escape_string($password);
         $salt = 'igCHI';
         $password = hash('sha256', $password . $salt);
         $sql = 'INSERT INTO user (username, emailaddress, password)
@@ -29,6 +32,7 @@ class User extends Model {
      * @return  [array['_id'], array['username'], array['emailaddress'], array['password']]
      */
     public function user_select_by_id($_id) {
+        $_id = mysql_real_escape_string($_id);
         $sql = 'SELECT  _id, username, emailaddress, password
                 FROM    user AS u
                 WHERE   u._id = ' . $_id;
@@ -43,6 +47,8 @@ class User extends Model {
      * @return [array['_id']]
      */
     public function user_select_by_credentials($email_address, $password) {
+        $email_address = mysql_real_escape_string($email_address);
+        $password = mysql_real_escape_string($password);
         $salt = 'igCHI';
         $password = hash('sha256', $password . $salt);
         $sql = 'SELECT  _id

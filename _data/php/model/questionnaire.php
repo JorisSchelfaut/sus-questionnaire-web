@@ -13,6 +13,8 @@ class Questionnaire extends Model {
      * @return boolean
      */
     function questionnaire_insert($user_id, $title) {
+        $user_id = mysql_real_escape_string($user_id);
+        $title = mysql_real_escape_string($title);
         $sql = 'INSERT INTO questionnaire (user_id, title)
                 VALUES                    ("' . $user_id . '",
                                            "' . $title . '")';
@@ -26,6 +28,8 @@ class Questionnaire extends Model {
      * @return type
      */
     function questionnaire_delete ($_id, $user_id) {
+        $user_id = mysql_real_escape_string($user_id);
+        $_id = mysql_real_escape_string($_id);
         $sql = 'DELETE FROM questionnaire
                 WHERE _id = ' . $_id .'
                 AND   user_id = ' . $user_id;
@@ -39,6 +43,8 @@ class Questionnaire extends Model {
      * @return type
      */
     function questionnaire_close ($_id, $user_id) {
+        $user_id = mysql_real_escape_string($user_id);
+        $_id = mysql_real_escape_string($_id);
         $sql = 'UPDATE  questionnaire
                 SET     closed = 1
                 WHERE   _id = ' . $_id .'
@@ -53,6 +59,8 @@ class Questionnaire extends Model {
      * @return type
      */
     function questionnaire_open ($_id, $user_id) {
+        $user_id = mysql_real_escape_string($user_id);
+        $_id = mysql_real_escape_string($_id);
         $sql = 'UPDATE  questionnaire
                 SET     closed = 0
                 WHERE   _id = ' . $_id .'
@@ -67,6 +75,7 @@ class Questionnaire extends Model {
      * @return  mysql result
      */
     function questionnaire_select_by_id($_id) {
+        $_id = mysql_real_escape_string($_id);
         $sql = 'SELECT  q._id AS id, q.user_id AS user, q.title AS title, q.closed AS closed
                 FROM    questionnaire AS q
                 WHERE   q._id = ' . $_id;
@@ -80,6 +89,7 @@ class Questionnaire extends Model {
      * @return  mysql result
      */
     function questionnaire_select_all_by_user_id($user_id) {
+        $user_id = mysql_real_escape_string($user_id);
         $sql = 'SELECT  q._id, q.user_id, q.title, q.closed AS closed
                 FROM    questionnaire AS q
                 WHERE   q.user_id = ' . $user_id;
