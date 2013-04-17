@@ -1,3 +1,4 @@
+var id = $.url().param('id');
 var margin = {top: 10, right: 50, bottom: 20, left: 50},
     width = 120 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
@@ -10,13 +11,13 @@ var chart = d3.box()
     .width(width)
     .height(height);
 
-d3.csv("../_data/csv/morley.csv", function(error, csv) {
+d3.csv("data.php?id=" + id, function(error, csv) {
   var data = [];
 
   csv.forEach(function(x) {
     var e = Math.floor(x.Expt - 1),
         r = Math.floor(x.Run - 1),
-        s = Math.floor(x.Speed),
+        s = Math.floor(x.Score),
         d = data[e];
     if (!d) d = data[e] = [s];
     else d.push(s);

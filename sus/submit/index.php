@@ -6,10 +6,9 @@ require_once '../../_data/php/model/result.php';
 $database = new Database();
 $result = new Result();
 $success = false;
-$title = '';
 
 $questionnaire = new Questionnaire();
-$questionnaire_id = $_GET['id'];
+$questionnaire_id = $_POST['questionnaire_id'];
 $database->open_database_connection();
 $questionnaire_result = $questionnaire->questionnaire_select_by_id($questionnaire_id);
 

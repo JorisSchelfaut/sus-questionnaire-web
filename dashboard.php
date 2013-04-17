@@ -16,7 +16,7 @@ $database->close_database_connection();
 $database->open_database_connection();
 $questionnaire_result = $questionnaire->questionnaire_select_all_by_user_id($user_id);
 
-$arrayData;
+$arrayData = array('items' => array());
 if (!$questionnaire_result) {
     $database->close_database_connection();
     die('Could not successfully run query ($sql) from DB: ' . mysql_error());
@@ -44,6 +44,9 @@ if (!$questionnaire_result) {
             </form>
             
             <h3>My Questionnaires</h3>
+            <?php
+                if ($arrayData) {
+            ?>
             <table>
                 <thead>
                     <tr>
@@ -56,9 +59,9 @@ if (!$questionnaire_result) {
                 </thead>
                 <tbody>
             <?php
-                foreach ($arrayData['items'] as $value) {
-                    $title = $value['title'];
-                    $questionnaire_id = $value['_id'];
+                    foreach ($arrayData['items'] as $value) {
+                        $title = $value['title'];
+                        $questionnaire_id = $value['_id'];
             ?>
                     <tr>
                         <td><?php echo $title; ?></td><!-- TITLE -->
@@ -88,8 +91,8 @@ if (!$questionnaire_result) {
                         </td>
                     </tr>
             <?php
-                }
-            ?>
+                    }
+            ?>        
                 </tbody>
                 <tfoot>
                     <tr>
@@ -101,7 +104,14 @@ if (!$questionnaire_result) {
                     </tr>
                 </tfoot>
             </table>
-
+            
+            <?php
+                } else {
+            ?>
+                <p>You haven't made any questionnaires yet.</p>
+            <?php
+                }
+            ?>
 <?php
 
 ?>

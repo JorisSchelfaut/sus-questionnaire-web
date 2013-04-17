@@ -19,7 +19,7 @@ $database->close_database_connection();
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>
-            SUS Questionnaire Web App | Results <?php echo $title; ?>
+            SUS Questionnaire Web App | Results | <?php echo $title; ?>
         </title>
         <meta name="language" content="english"/>
         <meta name="description" content="sus questionnaire web app"/>
@@ -29,13 +29,14 @@ $database->close_database_connection();
         <link rel="stylesheet" type="text/css" href="../_data/css/boxplot.css"/>
         <script type="text/javascript" src="../_data/js/jquery/jquery-1.8.3.js"></script>
         <script type="text/javascript" src="../_data/js/d3/d3.v3.min.js"></script>
+        <script type="text/javascript" src="../_data/js/purl/purl.js"></script>
         <script type="text/javascript" src="../_data/js/infovis/infovis.boxplot.js"></script>
         <script type="text/javascript" src="../_data/js/results.js"></script>
     </head>
     <body>
         <div id="header">
             <h1>SUS Questionnaire Web App</h1>
-            <h2>Results <?php echo $title; ?></h2>
+            <h2>Results | <?php echo $title; ?></h2>
         </div>
         <div id="navigation">
             <ul>
