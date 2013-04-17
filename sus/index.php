@@ -1,6 +1,10 @@
 <?php
 require_once '../_data/php/model/database.php';
 require_once '../_data/php/model/questionnaire.php';
+require_once '../_data/php/captcha/simple-php-captcha.php';
+
+session_start();
+$_SESSION['captcha'] = captcha();
 
 $database = new Database();
 $questionnaire = new Questionnaire();
@@ -183,11 +187,24 @@ if ($closed == '1') {
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td><input type="hidden" name="questionnaire_id" value="<?php echo $questionnaire_id; ?>"/></td>
-                            <td><input type="hidden" name="action" value="insert_result"/></td>
-                            <td><input type="submit" value="submit" /></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tfoot>
+                </table>
+                <table>
+                    <tr>
+                        <td>
+                            <!-- CAPTCHA -->
+                            <?php $_SESSION['captcha_code'] = $_SESSION['captcha']['code']; ?>
+                            <img src="<?php echo $_SESSION['captcha']['image_src']; ?>" alt="CAPTCHA" />
+                        </td>
+                        <td><input type="text" name="captcha"/></td>
+                        <td><input type="hidden" name="questionnaire_id" value="<?php echo $questionnaire_id; ?>"/></td>
+                        <td><input type="hidden" name="action" value="insert_result"/></td>
+                        <td><input type="submit" value="submit" /></td>
+                    </tr>
                 </table>
             </form>
         </div>

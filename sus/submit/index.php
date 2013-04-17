@@ -3,9 +3,12 @@ require_once '../../_data/php/model/database.php';
 require_once '../../_data/php/model/questionnaire.php';
 require_once '../../_data/php/model/result.php';
 
+session_start();
+
 $database = new Database();
 $result = new Result();
 $success = false;
+$error_msg = '';
 
 $questionnaire = new Questionnaire();
 $questionnaire_id = $_POST['questionnaire_id'];
@@ -17,14 +20,18 @@ $title = $row[2]; // title is the third column
 $closed = $row[3]; // closed is the fourth column
 $database->close_database_connection();
 
-if ($_POST['action'] == 'insert_result') {
-    $database->open_database_connection();
-    $result_result = $result->result_insert($_POST['questionnaire_id'],
-            $_POST['susq1'], $_POST['susq2'], $_POST['susq3'], $_POST['susq4'],
-            $_POST['susq5'], $_POST['susq6'], $_POST['susq7'], $_POST['susq8'],
-            $_POST['susq9'], $_POST['susq10']);
-    $success = $result_result;
-    $database->close_database_connection();
+if ($_SESSION['captcha_code'] == $_POST['captcha']) {
+    if ($_POST['action'] == 'insert_result') {
+        $database->open_database_connection();
+        $result_result = $result->result_insert($_POST['questionnaire_id'],
+                $_POST['susq1'], $_POST['susq2'], $_POST['susq3'], $_POST['susq4'],
+                $_POST['susq5'], $_POST['susq6'], $_POST['susq7'], $_POST['susq8'],
+                $_POST['susq9'], $_POST['susq10']);
+        $success = $result_result;
+        $database->close_database_connection();
+    }
+} else {
+    $error_msg = 'Wrong captcha entry. Please try again.';
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -63,6 +70,9 @@ if ($_POST['action'] == 'insert_result') {
 <?php } else { ?>
             <p>Something went wrong. The results were not submitted.</p>
 <?php } ?>
+            <?php
+        if ($error_msg) echo '<p>' . $error_msg . '</p>';
+?>
         </div>
         <div id="footer">
             <p>Visit our blog at <a href="http://igchi.wordpress.com/">igchi.wordpress.com</a>.</p>

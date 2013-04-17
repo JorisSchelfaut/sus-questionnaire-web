@@ -4,10 +4,14 @@ require_once '_data/php/model/database.php';
 require_once '_data/php/model/auth.php';
 require_once '_data/php/model/user.php';
 require_once '_data/php/model/questionnaire.php';
+require_once '_data/php/captcha/simple-php-captcha.php';
 
 session_start();
 
+$_SESSION['captcha'] = captcha();
+
 $auth = new Auth();
+$error_msg = '';
 $database = new Database();
 $questionnaire = new Questionnaire();
 $logged_in = isset($_SESSION['USER']);
@@ -18,9 +22,13 @@ if (!empty($_POST['action'])) {
         $logged_in = $auth->login($_POST['email'], $_POST['password']);
         $database->close_database_connection();
     } else if ($_POST['action'] == 'register') {
-        $database->open_database_connection();
-        $logged_in = $auth->register($_POST['email'], $_POST['password'], $_POST['username']);
-        $database->close_database_connection();
+        if ($_SESSION['captcha_code'] == $_POST['captcha']) {
+            $database->open_database_connection();
+            $logged_in = $auth->register($_POST['email'], $_POST['password'], $_POST['username']);
+            $database->close_database_connection();
+        } else {
+            $error_msg = 'Wrong captcha entry. Please try again.';
+        }
     } else if($_POST['action'] == 'logout') {
         $logged_in = $auth->logout();
     } else if($_POST['action'] == 'insert_questionnaire' && isset($_SESSION['USER'])) {
@@ -64,6 +72,9 @@ if (!empty($_POST['action'])) {
             <h2>Home</h2>
         </div>
         <div>
+<?php
+        if ($error_msg) echo '<p>' . $error_msg . '</p>';
+?>
 <?php 
     if ($logged_in) {
 ?>
